@@ -1,6 +1,7 @@
 {
-  "name": "node-js-getting-started",
+  "name": "MeanStack",
   "version": "0.2.5",
+  "private" : true,
   "description": "A sample Node.js app using Express 4",
   "engines": {
     "node": "5.9.1"
@@ -10,9 +11,9 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "ejs": "2.4.1",
     "express": "4.13.3",
-    "opbeat": "^3.14.0"
+    "opbeat": "^3.14.0",
+    "jade" :"*"
   },
   "repository": {
     "type": "git",

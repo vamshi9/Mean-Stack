@@ -10,7 +10,7 @@ app.use(opbeat.middleware.express())
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+app.set('view engine', 'jade');
 
 app.get('/', function(request, response) {
   response.render('pages/index');
