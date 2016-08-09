@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(opbeat.middleware.express())
 
 // views is directory for all template files
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/app_server/views');
 app.set('view engine', 'jade');
 
 app.get('/', function(request, response) {
