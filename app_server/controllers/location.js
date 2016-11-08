@@ -1,10 +1,14 @@
 module.exports.homePage = function(req, res) {
-        res.render('index', { title: 'Express' });
+        res.render('location-list', { title: 'Home' });
+};
+
+module.exports.homeList = function(req, res) {
+        res.render('location-list', { title: 'Home' });
 };
 
 //locationDetails
 module.exports.locationDetails = function(req,res){
-  res.render('index',{ title : 'Location Details'});
+  res.render('location-info',{ title : 'Location Details'});
 };
 
 //rating
