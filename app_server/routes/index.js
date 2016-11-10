@@ -5,7 +5,7 @@ var ctrlAbout = require('../controllers/about');
 /* GET home page. */
 router.get('/', ctrlLocation.homePage);
 router.get('/location-info',ctrlLocation.locationDetails);
-router.get('/location/review',ctrlLocation.rating);
+router.get('/location/review',ctrlLocation.addReview);
 router.get('/about',ctrlAbout.about);
 
 module.exports = router;
