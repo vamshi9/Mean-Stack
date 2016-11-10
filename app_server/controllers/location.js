@@ -12,6 +12,6 @@ module.exports.locationDetails = function(req,res){
 };
 
 //rating
-module.exports.rating = function(req,res){
-  res.render('index',{title : 'rating location'});
-};
+module.exports.addReview = function(req,res){
+  res.render('add-review',{title : 'Add Review'});
+};	
