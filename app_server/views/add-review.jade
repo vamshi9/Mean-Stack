@@ -1,0 +1,27 @@
+extends layout
+block content
+ .row.page-header
+    .col-lg-12
+        h1 Review Starbucks
+     .row
+       .col-xs-12.col-md-6
+          form.form-horizontal(action="/location-info",method = "get",role="form")
+             .form-group
+                label.col-xs-10.col-sm-2.control-label(for="name") Name
+                .col-sm-10.col-xs-12
+                  input#name.form-control
+              .form-group
+                  label.col-xs-10.col-sm-2.control-label(for="rating") Rating
+                  .col-sm-10.col-xs-12
+                     select#rating.form-control.input-sm(name="rating")
+                         option 5
+                         option 4
+                         option 3
+                         option 2
+                         option 1
+              .form-group
+                  label.col-sm-2.control-label(for = "review") Review
+                  .col-sm-10
+                    textarea#comment.form-control
+              button.btn.btn-default.pull-right Add my review
+        .col-xs-12.col-md-4
