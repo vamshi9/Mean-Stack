@@ -1,79 +1,54 @@
 extends layout
 
+include _includes/shareMixins
 block content
    .row.page-header
       .col-lg-12.well.well-sm
-         h1 Starbucks
+         h1=pageHeader.title
 
    .row
       .col-xs-12.col-md-9
          .row
             .col-xs-12.col-sm-6
               p.rating
-                 span.glyphicon.glyphicon-star
-                 span.glyphicon.glyphicon-star
-                 span.glyphicon.glyphicon-star
-                 span.glyphicon.glyphicon-star
-                 span.glyphicon.glyphicon-star-empty
+                  +outputRating(location.rating)
 
-              p Inorbit Mall, Inorbit Mall Road
+              p=location.address
               .panel.panel-primary
                 .panel-heading
-                  h2.panel-title Opening Hours
+                  h2.panel-title=location.timings.title
                 .panel-body
-                  p Monday to Saturday 10:30 AM - 10:00 PM
+                  p=location.timings.openingHours
               .panel.panel-primary
                 .panel-heading
-                  h2.panel-title Menu Offered
+                  h2.panel-title=location.menu.title
                 .panel-body
-                   span.label.label-warning
+                  each facility in location.menu.facilities
+                    span.label.label-warning=facility
                      span.glyphicon.glyphicon-ok
-                      | &nbsp;Hot Drinks
-                   | &nbsp;
-                   span.label.label-warning
-                     span.glyphicon.glyphicon-ok
-                      | &nbsp;Cold Drinks
-                   | &nbsp;
-                   span.label.label-warning
-                     span.glyphicon.glyphicon-ok
-                      | &nbsp;Mixed Drinks
-                   | &nbsp;
+                      | &nbsp;
+                    | &nbsp;
+
             .col-xs-12.col-sm-6.location-map
                 .panel.panel-primary
                   .panel-heading
-                    h2.panel-title Location Map
+                    h2.panel-title=location.locationTitle
                   .panel-body
-                    img.img-responsive.img-rounded(src="http://maps.googleapis.com/maps/api/staticmap?center=Inorbit+Mall+Hyderabad&zoom=13&scale=false&size=600x450&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7CInorbit+Mall+Hyderabad")
+                    img.img-responsive.img-rounded(src="http://maps.googleapis.com/maps/api/staticmap?center=Inorbit+Mall+Hyderabad&zoom=13&scale=false&size=600x450&maptype=roadmap&format=png&visual_refresh=true")
           .row
             .col-xs-12
                .panel.panel-primary.review-panel
                   .panel-heading
-                     a.btn.btn-default.pull-right(href='/location-info/review') Add review
-                     h2.panel-title Customer Reviews
+                     a.btn.btn-default.pull-right(href='/location-info/review')=location.reviewTitle
+                     h2.panel-title=location.customerReviews
                   .panel-body
-                     .row
-                        .review
+                     each user in users
+                       .row
+                         .review
                            .well.well-sm.review-header
                              span.rating
-                                span.glyphicon.glyphicon-star
-                                span.glyphicon.glyphicon-star
-                                span.glyphicon.glyphicon-star
-                                span.glyphicon.glyphicon-star
-                                span.glyphicon.glyphicon-star
-                              span.reviewAuthor Vamshi Bachaneboina
-                              small.reviewTimeStamp 27 July 2016
+                                +outputRating(user.rating)
+                             span.reviewAuthor=user.name
+                             small.reviewTimeStamp=user.date
                             .col-xs-12
-                              p This is awesome place to try all the type of Coffeeeee! <3
-                      .row
-                          .review
-                            .well.well-sm.review-header
-                              span.rating
-                                 span.glyphicon.glyphicon-star
-                                 span.glyphicon.glyphicon-star
-                                 span.glyphicon.glyphicon-star
-                                 span.glyphicon.glyphicon-star
-                                 span.glyphicon.glyphicon-star-empty
-                                span.reviewAuthor A G Praneeth
-                                small.reviewTimeStamp 31 July 2016
-                             .col-xs-12
-                                 p Well! Not satifised with money to taste! :/
+                              p=user.comment
