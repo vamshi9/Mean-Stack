@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var gracefulShutdown;
-var dbURL = 'mongodb://localhost/vb9';
+var dbURL = 'mongodb://http://vb9.herokuapp.com/vb9';
 mongoose.connect(dbURL);
 
 mongoose.connection.on('connected',function(){
