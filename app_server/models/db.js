@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var gracefulShutdown;
-var dbURL = 'mongodb://http://vb9.herokuapp.com/vb9';
-mongoose.connect(dbURL);
+//var dbURL = 'mongodb://http://vb9.herokuapp.com/vb9';
+//mongoose.connect(dbURL);
 
 mongoose.connection.on('connected',function(){
   console.log('mongoose conencted to ' + dbURL);
