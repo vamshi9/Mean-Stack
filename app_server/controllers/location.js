@@ -10,7 +10,7 @@ module.exports.homePage = function(req, res) {
              address : 'Inorbit Mall, Inorbit Mall Road',
              rating :5,
              facilities : ['Hot Drinks','Cold Drinks','Mixed Drinks'],
-             distance : '2000m'
+             coords:[-0.969,52.455]
            },{
              name : 'Coffee Day',
              address : 'Urdu University Road,Telecom Nagar, Gachibowli',
@@ -52,12 +52,12 @@ module.exports.locationDetails = function(req,res){
      users : [{
        name :'Vamshi Bachenboina',
        comment : 'This is awesome place to try all the type of Coffeeeee! <3',
-       date : '27 July 2016',
+       createdOn : ISODate( '2016-07-27T7:00:00Z'),
        rating : 5
      },{
        name : 'A G Praneeth',
        comment : ' Well! Not satifised with money to taste! :/',
-       date : '27 July 2016',
+       createdOn : ISODate( '2016-07-27T19:00:00Z'),
        rating : 4,
      }]
    });

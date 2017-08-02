@@ -1,10 +1,26 @@
 var mongoose = require('mongoose');
+require('./locations');
 var gracefulShutdown;
-//var dbURL = 'mongodb://http://vb9.herokuapp.com/vb9';
-//mongoose.connect(dbURL);
+
+// process termination windows
+/*
+var readLine = require('readline');
+if(process.platform='win32'){
+   var r1 = readLine.createInterface({
+       input:process.stdin,
+       output:process.stdout
+   });
+   r1.on('SIGINT',function(){
+        process.emit('SIGINT');
+   });
+ }
+ */
+
+var dbURI = 'mongodb://localhost/vb9';
+mongoose.connect(dbURI);
 
 mongoose.connection.on('connected',function(){
-  console.log('mongoose conencted to ' + dbURL);
+  console.log('mongoose conencted to ' + dbURI);
 });
 
 mongoose.connection.on('error',function(){
@@ -12,7 +28,7 @@ mongoose.connection.on('error',function(){
 });
 
 mongoose.connection.on('disconnected',function(){
-  console.log('Mongoose connection is diconnected');
+  console.log('Mongoose connection is disconnected');
 });
 
 gracefulShutdown = function(msg,callback){
